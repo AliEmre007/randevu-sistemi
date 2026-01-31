@@ -1,16 +1,16 @@
-import { drizzle } from "drizzle-orm/postgres-js";
-import postgres from "postgres";
+// YENİ VE TEMİZ HALİ ✅
+import { drizzle } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
 import * as schema from "./schema";
-import * as dotenv from "dotenv";
 
-dotenv.config({ path: ".env.local" }); // .env dosyasını oku
+// dotenv satırlarını sildik.
+// Next.js zaten process.env.DATABASE_URL'i otomatik doldurur.
 
-if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL bulunamadı!");
+const connectionString = process.env.DATABASE_URL!;
+
+if (!connectionString) {
+  throw new Error("DATABASE_URL is not set");
 }
 
-// Veritabanı bağlantı istemcisini oluştur
-const client = postgres(process.env.DATABASE_URL);
-
-// Drizzle'ı başlat ve şemayı içine yükle
+const client = postgres(connectionString);
 export const db = drizzle(client, { schema });
