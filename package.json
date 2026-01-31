@@ -22,9 +22,10 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.2.3",
+    "drizzle-kit": "^0.x.x",
     "eslint": "^9",
     "eslint-config-next": "16.1.5",
-    "drizzle-kit": "^0.x.x",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
